@@ -8,8 +8,12 @@
 </head>
 <body>
     <div class="wrapper">
-        <button id='random-button' onclick="getRandomName()">Click for a random name!</button>
-        <input type="text" id='search' autocomplete="off">
+        <button id='random-button' onclick="getRandomName()">Random name!</button>
+        <div id="form">
+        <input placeholder="search..." type="text" id='search' autocomplete="off">
+        <button class="toggle" id='toggle-global' onclick="toggleGlobal()">AMERICAN</button>
+        <button class="toggle" id='toggle-button' onclick="toggleStart()">START</button>
+        </div>
         <h2></h2>
         <ul id="names"></ul>
 
