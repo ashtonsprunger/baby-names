@@ -10,12 +10,6 @@ let namesFile;
 let start = true;
 let showing = [];
 
-$.get("/all.txt", {}, function (content) {
-  namesFile = content.split("\n");
-
-  drawNames(filterNames(search.value));
-});
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
@@ -70,3 +64,15 @@ const drawNames = (names) => {
   });
   showing = names;
 };
+
+var rawFile = new XMLHttpRequest();
+rawFile.open("GET", "./all.txt", false);
+rawFile.onreadystatechange = function () {
+  if (rawFile.readyState === 4) {
+    if (rawFile.status === 200 || rawFile.status == 0) {
+      namesFile = rawFile.responseText.split("\n");
+      drawNames(namesFile);
+    }
+  }
+};
+rawFile.send(null);
