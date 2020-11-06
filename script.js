@@ -16,7 +16,7 @@ search.addEventListener("keyup", (e) => {
 const filterNames = (query) => {
   namesToShow = [];
   namesArray.map((name) => {
-    if (name.toLowerCase().includes(query)) {
+    if (name.toLowerCase().includes(query.toLowerCase())) {
       namesToShow.push(name);
     }
   });
