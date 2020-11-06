@@ -47,7 +47,12 @@ const searchNames = () => {
 };
 
 const getRandomName = () => {
-  let name = showing[Math.floor(Math.random() * showing.length)];
+  let name;
+  if (showing.length > 0) {
+    name = showing[Math.floor(Math.random() * showing.length)];
+  } else {
+    name = "No names!";
+  }
   button.innerHTML = name;
 };
 
