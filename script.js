@@ -2,6 +2,7 @@ let namesList = document.getElementById("names");
 let search = document.getElementById("search");
 let button = document.getElementById("random-button");
 let h = document.querySelector("h2");
+
 let toggleButton = document.getElementById("toggle-button");
 let globalButton = document.getElementById("toggle-global");
 let form = document.getElementById("form");
