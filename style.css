@@ -17,6 +17,7 @@ body {
   margin-right: 0;
   padding-left: 8px;
   border-bottom: none;
+  border-radius: 15px 15px 0 0;
 }
 
 #random-button {
@@ -30,6 +31,7 @@ body {
   border: 3px solid rgb(255, 0, 0);
   background-color: white;
   outline: none;
+  border-radius: 10px;
 }
 
 #names {
@@ -61,6 +63,11 @@ h2 {
 
 #toggle-global {
   border-right: none;
+  border-radius: 0 0 0 15px;
+}
+
+#toggle-button {
+  border-radius: 0 0 15px 0;
 }
 
 #form {

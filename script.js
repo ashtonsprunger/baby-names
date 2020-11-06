@@ -4,48 +4,51 @@ let button = document.getElementById("random-button");
 let h = document.querySelector("h2");
 let toggleButton = document.getElementById("toggle-button");
 let globalButton = document.getElementById("toggle-global");
+let form = document.getElementById("form");
 
-let namesArray = [];
+let namesFile;
+let start = true;
 let showing = [];
 
-let start = true;
-let global = false;
+$.get("/all.txt", {}, function (content) {
+  namesFile = content.split("\n");
 
-let url =
-  "https://data.cityofnewyork.us/api/views/25th-nujf/rows.json?accessType=DOWNLOAD";
+  drawNames(filterNames(search.value));
+});
 
-search.addEventListener("keyup", (e) => {
-  filterNames(e.target.value);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 });
 
 const toggleStart = () => {
   start = !start;
   toggleButton.innerHTML = start ? "START" : "ALL";
-  filterNames(search.value);
-};
-
-const toggleGlobal = () => {
-  global = !global;
-  globalButton.innerHTML = global ? "GLOBAL" : "AMERICAN";
-  fetchResults();
 };
 
 const filterNames = (query) => {
   let namesToShow = [];
   if (start) {
-    namesArray.map((name) => {
+    namesFile.map((name) => {
       if (name.toLowerCase().startsWith(query.toLowerCase())) {
         namesToShow.push(name);
       }
     });
   } else {
-    namesArray.map((name) => {
+    namesFile.map((name) => {
       if (name.toLowerCase().includes(query.toLowerCase())) {
         namesToShow.push(name);
       }
     });
   }
-  drawNames(namesToShow);
+  return namesToShow;
+};
+
+search.addEventListener("submit", () => {
+  console.log("enter");
+});
+
+const searchNames = () => {
+  drawNames(filterNames(search.value));
 };
 
 const getRandomName = () => {
@@ -54,7 +57,11 @@ const getRandomName = () => {
 };
 
 const drawNames = (names) => {
-  h.innerHTML = `${names.length} ${names.length == 1 ? "result" : "results"}`;
+  if (names.length == 0) {
+    h.innerHTML = `no results for '${search.value}'`;
+  } else {
+    h.innerHTML = `${names.length} ${names.length == 1 ? "result" : "results"}`;
+  }
   namesList.innerHTML = "";
   names.map((name) => {
     let li = document.createElement("li");
@@ -62,49 +69,4 @@ const drawNames = (names) => {
     namesList.appendChild(li);
   });
   showing = names;
-  console.log(names.length);
 };
-
-const capNames = (names) => {
-  let namesArr = names.map(
-    (name) => name[0].toUpperCase() + name.slice(1, name.length).toLowerCase()
-  );
-  return namesArr;
-};
-
-const trimNames = (names) => {
-  let namesArr = [];
-  names.map((name) => {
-    if (!namesArr.includes(name)) {
-      namesArr.push(name);
-    }
-  });
-  return namesArr;
-};
-
-const fetchResults = () => {
-  namesArray = [];
-  fetch(url)
-    .then((res) => res.json())
-    .then((json) => {
-      json.data.map((name, index) => {
-        if (global) {
-          namesArray.push(name[11]);
-        } else {
-          if (
-            name[10] === "WHITE NON HISPANIC" ||
-            name[10] === "WHITE NON HISP"
-          ) {
-            namesArray.push(name[11]);
-          }
-        }
-      });
-      namesArray = capNames(namesArray);
-      namesArray = trimNames(namesArray);
-      namesArray.sort();
-      drawNames(namesArray);
-      filterNames(search.value);
-    });
-};
-
-fetchResults();
