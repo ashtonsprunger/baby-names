@@ -11,12 +11,17 @@
         <button id='random-button' onclick="getRandomName()">Random name!</button>
         <form id="form">
         <input placeholder="search..." type="text" id='search' autocomplete="off">
-        <button type="submit" class="toggle" id='toggle-global' onclick="searchNames()">SEARCH</button>
+        <button type="submit" class="toggle" id='search-button' onclick="searchNames()">SEARCH</button>
         <button class="toggle" id='toggle-button' onclick="toggleStart()">START</button>
         </form>
         <h2></h2>
         <ul id="names"></ul>
-
+        <div class="buttons">
+            <button id='first-button' onclick="firstPage()"><<</button>
+            <button id='pre-button' onclick="previousPage()">Previous</button>
+            <span id='page-info'></span>
+            <button id="next-button" onclick="nextPage()">Next</button>
+        </div>
     </div>
 
     <script src="./script.js"></script>

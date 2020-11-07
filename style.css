@@ -63,7 +63,7 @@ h2 {
   cursor: pointer;
 }
 
-#toggle-global {
+#search-button {
   border-right: none;
   border-radius: 0 0 0 15px;
 }
@@ -76,4 +76,38 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 0.7fr;
   margin-bottom: 15px;
+}
+
+#pre-button {
+  border-left: none;
+}
+
+#next-button {
+  border-radius: 0 10px 10px 0;
+}
+
+#first-button {
+  border-radius: 10px 0 0 10px;
+}
+
+#page-info {
+  width: 100%;
+  text-align: center;
+  align-self: center;
+}
+
+.buttons button {
+  height: 35px;
+  width: 100%;
+  outline: none;
+  border: 2px solid rgb(255, 145, 0);
+  background-color: white;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1.5fr 3.8fr 4.5fr 2.6fr;
+  margin-top: 10px;
 }
