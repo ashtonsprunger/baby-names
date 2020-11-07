@@ -9,7 +9,7 @@ let toggleButton = document.getElementById("toggle-button");
 let searchButton = document.getElementById("search-button");
 let form = document.getElementById("form");
 
-let namesPerPage = 50;
+let namesPerPage = 100;
 let page = 0;
 
 let searchByStart = true;
