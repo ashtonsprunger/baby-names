@@ -30,6 +30,11 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
+const clearTheSearch = () => {
+  searchInput.value = "";
+  searchInput.focus();
+};
+
 const toggleStart = () => {
   searchByStart = !searchByStart;
   toggleButton.innerHTML = searchByStart ? "START" : "ALL";

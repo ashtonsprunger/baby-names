@@ -5,24 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baby Names - Ashton Sprunger</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./assets/clipboard.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="wrapper">
-        <button id='random-button' onclick="getRandomName()">Random name!</button>
-        <form id="form">
-        <input placeholder="search..." type="text" id='search' autocomplete="off">
-        <button type="submit" class="toggle" id='search-button' onclick="searchNames()">SEARCH</button>
-        <button class="toggle" id='toggle-button' onclick="toggleStart()">START</button>
-        </form>
-        <h2></h2>
-        <ul id="names"></ul>
-        <div class="buttons">
-            <button id='first-button' onclick="firstPage()"><<</button>
-            <button id='pre-button' onclick="previousPage()">Previous</button>
-            <span id='page-info'></span>
-            <button id="next-button" onclick="nextPage()">Next</button>
+    <div class="all">
+        <div class="wrapper">
+            <button id='random-button' onclick="getRandomName()">Random name!</button>
+            <form id="form">
+            <div id="searchArea">
+                <input placeholder="search..." type="text" id='search' autocomplete="off">
+                <button id="clearSearch" type="button" onclick="clearTheSearch()">&#x2716;</button>
+            </div>
+            <button type="submit" class="toggle" id='search-button' onclick="searchNames()">SEARCH</button>
+            <button class="toggle" id='toggle-button' onclick="toggleStart()">START</button>
+            </form>
+            <h2></h2>
+            <ul id="names"></ul>
+            <div class="buttons">
+                <button id='first-button' onclick="firstPage()"><<</button>
+                <button id='pre-button' onclick="previousPage()">Previous</button>
+                <span id='page-info'></span>
+                <button id="next-button" onclick="nextPage()">Next</button>
+            </div>
         </div>
+    
+        <footer>
+            <p class="footer-item">Ashton Sprunger - all rights reserved &copy;</p>
+            <div class="footer-item">Icons made by <a target="blank" href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a target="blank" href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    
+        </footer>
     </div>
+
 
     <script src="./script.js"></script>
 </body>
