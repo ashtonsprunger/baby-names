@@ -4,6 +4,11 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+*::selection {
+  color: white;
+  background-color: rgb(0, 0, 0);
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -24,7 +29,7 @@ body {
 }
 
 #clearSearch {
-  border: 3px solid rgb(0, 156, 0);
+  border: 3px solid rgb(0, 207, 0);
   width: 35px;
   border-left: none;
   background-color: white;
@@ -34,6 +39,7 @@ body {
   cursor: pointer;
   font-size: 25px;
   padding-right: 5px;
+  -webkit-tap-highlight-color: transparent;
   /* font-weight: bold; */
 }
 
@@ -41,7 +47,7 @@ body {
   height: 35px;
   font-size: 28px;
   outline: none;
-  border: 3px solid rgb(0, 156, 0);
+  border: 3px solid rgb(0, 207, 0);
   margin-right: 0;
   padding-left: 8px;
   border-bottom: none;
@@ -63,6 +69,7 @@ body {
   outline: none;
   border-radius: 10px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #names {
@@ -91,11 +98,13 @@ h2 {
   outline: none;
   padding: 0 5px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #search-button {
   border-right: none;
   border-radius: 0 0 0 15px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #toggle-button {
@@ -134,6 +143,7 @@ h2 {
   background-color: white;
   cursor: pointer;
   font-size: 20px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .buttons {

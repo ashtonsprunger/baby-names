@@ -90,6 +90,7 @@ const filterNames = (query) => {
 
 const searchNames = () => {
   page = 0;
+  searchButton.focus();
   drawNames(filterNames(search.value));
 };
 
